@@ -1,0 +1,18 @@
+kind: pipeline
+name: default
+
+workspace:
+   base: /go
+   path: src/github.com/cuisongliu/kube-build/
+
+steps:
+- name: publish-drone-kube
+  image: plugins/docker:linux-amd64
+  settings:
+    repo: cuisongliu/kube-build
+    tags: ${DRONE_TAG=alpine}
+    username:
+      from_secret: docker-hub-user
+    dockerfile: Dockerfile
+    password:
+      from_secret: docker-hub-pass
