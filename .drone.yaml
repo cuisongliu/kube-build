@@ -10,7 +10,7 @@ steps:
   image: plugins/docker:linux-amd64
   settings:
     repo: cuisongliu/kube-build
-    tags: ${DRONE_TAG=alpine}
+    tags: ${DRONE_TAG=alpine-high}
     username:
       from_secret: docker-hub-user
     dockerfile: Dockerfile
